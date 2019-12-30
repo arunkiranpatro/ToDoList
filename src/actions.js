@@ -1,20 +1,22 @@
-import C from "../constants"
+import {
+    constants
+} from "./constants"
 
 export function addTodo(text) {
     return {
-        type: C.ADD_TODO,
+        type: constants.ADD_TODO,
         text
     }
 }
 export function toggleTodo(index) {
     return {
-        type: C.TOGGLE_TODO,
+        type: constants.TOGGLE_TODO,
         index
     }
 }
 export function setVisibilityFilter(filter) {
     return {
-        type: C.SET_VISIBILITY_FILTER,
+        type: constants.SET_VISIBILITY_FILTER,
         filter
     }
 }
