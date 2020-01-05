@@ -1,12 +1,15 @@
 import React from "react";
 
-const ToDo = ({text,onClick= f=>f,completed =true}) =>{
-    return (<li className="todo" onClick ={onClick} 
-        style={{textDecoration : completed ?  'line-through' : 'none'}}
+const ToDo = ({ text, onClick = f => f, completed = true }) => {
+  return (
+    <li
+      className="todo"
+      onClick={onClick}
+      style={{ textDecoration: completed ? "line-through" : "none" }}
     >
-
-        {text}
-    </li>);
+      {text}
+    </li>
+  );
 };
 
 export default ToDo;
