@@ -4,7 +4,7 @@ import ReactDom from "react-dom";
 import todoApp from "./store/reducers";
 import { addTodo, toggleTodo, setVisibilityFilter } from "./actions";
 import { Provider } from "react-redux";
-import App from "./components/App";
+import App from "./App";
 
 import { VisibilityFilters } from "./constants";
 
