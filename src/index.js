@@ -5,10 +5,12 @@ import todoApp from "./store/reducers";
 import { addTodo, toggleTodo, setVisibilityFilter } from "./actions";
 import { Provider } from "react-redux";
 import App from "./App";
+import {applyMiddleware} from "redux"
+import thunk from "redux-thunk";
 
 import { VisibilityFilters } from "./constants";
 
-const store = createStore(todoApp);
+const store = createStore(todoApp,applyMiddleware(thunk));
 
 console.log(store.getState());
 // Every time the state changes, log it

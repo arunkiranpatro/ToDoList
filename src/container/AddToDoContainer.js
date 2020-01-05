@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import AddTodo from "../components/AddTodo";
-import { addTodo } from "../actions";
+import { addTask } from "../actions";
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: text => {
-      dispatch(addTodo(text));
+      dispatch(addTask(text));
     }
   };
 };
