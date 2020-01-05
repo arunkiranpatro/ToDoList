@@ -1,6 +1,6 @@
-import { constants } from "./constants";
+import { constants } from "../constants";
 
-import { VisibilityFilters } from "./constants";
+import { VisibilityFilters } from "../constants";
 
 export function addTodo(text) {
   return {

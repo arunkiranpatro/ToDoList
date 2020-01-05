@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { addTodo, toggleTodo } from "./actions";
+import { addTodo, toggleTodo } from "./actions/actions";
 import { Provider } from "react-redux";
 import App from "./components/App";
 import storeFactory from "./store/index";
