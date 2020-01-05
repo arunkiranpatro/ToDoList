@@ -22,7 +22,6 @@ store.dispatch(toggleTodo(0));
 store.dispatch(toggleTodo(1));
 store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
 // Stop listening to state updates
-unsubscribe();
 
 ReactDom.render(
   <Provider store={store}>

@@ -27,19 +27,19 @@ function todos(state = [], action) {
                         completed: !todo.completed
                     })
                 }
-                return todo
+                return todo;
             })
         default:
             return state;
     }
 }
 
-function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {
+function visibilityFilter(state =VisibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
         case constants.SET_VISIBILITY_FILTER:
             return action.filter;
         default:
-            return VisibilityFilters.SHOW_ALL;
+            return state;
     }
 }
 
