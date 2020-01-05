@@ -1,10 +1,12 @@
 import React from "react";
-import ToDoList from "./todoList";
+import VisibleToDoList from "../container/visibleToDoList";
+import Footer from "./Footer";
 
-const App = ({ todos = [] }) => {
+const App = () => {
   return (
     <div className="todo-app">
-      <ToDoList todos={todos} />
+      <VisibleToDoList />
+      <Footer />
     </div>
   );
 };

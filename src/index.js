@@ -1,9 +1,10 @@
 import { createStore } from "redux";
 import React from "react";
-import App from "./components/App";
 import ReactDom from "react-dom";
 import todoApp from "./store/reducers";
 import { addTodo, toggleTodo, setVisibilityFilter } from "./actions";
+import { Provider } from "react-redux";
+import App from "./components/App";
 
 import { VisibilityFilters } from "./constants";
 
@@ -23,8 +24,9 @@ store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
 // Stop listening to state updates
 unsubscribe();
 
-const todos = store.getState().todos;
 ReactDom.render(
-  <App todos={todos} />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("react-container")
 );

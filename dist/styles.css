@@ -9,6 +9,6 @@ nav.menu {
     justify-content: space-around;
 }
 
-nav.menu a {
+nav.menu * {
     color: #ffffff;
 }
