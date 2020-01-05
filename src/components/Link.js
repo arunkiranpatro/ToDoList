@@ -2,7 +2,7 @@ import React from "react";
 
 const Link = ({ active, text, onClick }) => {
   if (active) {
-    return <span>{text}</span>;
+    return <a className="selected">{text}</a>;
   }
   return (
     <a
