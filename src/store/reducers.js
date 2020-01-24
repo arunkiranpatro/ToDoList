@@ -8,10 +8,7 @@ import {
 import {
     combineReducers
 } from 'redux';
-const initialState = {
-    visibilityFilter: VisibilityFilters.SHOW_ALL,
-    todos: []
-};
+
 
 function todos(state = [], action) {
     switch (action.type) {
@@ -34,7 +31,7 @@ function todos(state = [], action) {
     }
 }
 
-function visibilityFilter(state =VisibilityFilters.SHOW_ALL, action) {
+function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
         case constants.SET_VISIBILITY_FILTER:
             return action.filter;

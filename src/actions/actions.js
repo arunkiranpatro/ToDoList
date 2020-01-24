@@ -1,6 +1,10 @@
-import { constants } from "../constants";
+import {
+  constants
+} from "../constants";
 
-import { VisibilityFilters } from "../constants";
+import {
+  VisibilityFilters
+} from "../constants";
 
 export function addTodo(text) {
   return {
@@ -20,6 +24,7 @@ export function setVisibilityFilter(filter) {
     filter
   };
 }
+
 
 export const addTask = text => dispatch => {
   dispatch(addTodo(text));
