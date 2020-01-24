@@ -1,31 +1,21 @@
+const path = require("path");
 module.exports = {
-	entry: "./src/index.js",
-	output: {
-	  path: "dist/assets",
-	  filename: "bundle.js",
-	  publicPath: "assets"
-	},
-	devServer: {
-	  inline: true,
-	  contentBase: "./dist",
-	  port: 3000
-	},
-	module: {
-	  loaders: [
-		{
-		  test: /\.js$/,
-		  exclude: /(node_modules)/,
-		  loader: ["babel"],
-		  query: {
-			presets: ["latest", "stage-0", "react"]
-		  }
-		},
-		{
-		  test: /\.json$/,
-		  exclude: /(node_modules)/,
-		  loader: "json-loader"
-		}
-	  ]
-	}
-  };
-  
+  entry: "./src/index.js",
+  output: { path: path.resolve(__dirname, "dist"), filename: "bundle.js" },
+  mode: "development",
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+      {
+        test: /\.json$/,
+        exclude: /(node_modules)/,
+        loader: "json-loader"
+      }
+    ]
+  },
+  devServer: {
+    inline: true,
+    contentBase: "./dist",
+    port: 3000
+  }
+};
