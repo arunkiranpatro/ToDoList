@@ -24,6 +24,13 @@ export function setVisibilityFilter(filter) {
     filter
   };
 }
+
+export function mapDataFromDB(response) {
+  return {
+    type: constants.INIT,
+    response
+  };
+}
 export const toggleTodoWrapper = (id, uniqueid) => dispatch => {
   axios
     .post("http://localhost:5000/api/tasks/update", { id: uniqueid })
@@ -48,7 +55,7 @@ export const fetchToDos = () => dispatch => {
     .get("http://localhost:5000/api/tasks/getAll")
     .then(response => response.data)
     .then(response => {
-      dispatch({ type: constants.INIT, response });
+      dispatch(mapDataFromDB(response));
     })
     .catch(err => console.log(err));
 };
