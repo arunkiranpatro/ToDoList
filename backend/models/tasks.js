@@ -7,7 +7,7 @@ const TasksSchema = new Schema({
         required: true
     },
     completed: {
-        type: String
+        type: Boolean
     }
 });
 module.exports = Task = mongoose.model("task", TasksSchema);

@@ -8,7 +8,9 @@ const storeFactory = function(initialState = {}) {
 
 const logger = store => next => action => {
   let result;
-  console.log("dispatching", action);
+  if (action.type){
+    console.log("dispatching", action);
+  }
   result = next(action);
   console.log("state", store.getState());
   return result;

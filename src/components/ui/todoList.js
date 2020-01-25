@@ -8,8 +8,9 @@ const ToDoList = ({ todos = [], onTodoClick }) => {
         <ToDo
           text={todo.text}
           completed={todo.completed}
-          onClick={() => onTodoClick(id)}
+          onClick={() => onTodoClick(id,todo._id)}
           key={id}
+          uniqueID = {todo._id}
         />
       ))}
     </ul>
