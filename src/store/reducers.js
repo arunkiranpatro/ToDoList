@@ -15,10 +15,10 @@ function todos(state = [], action) {
         }
       ];
     case constants.TOGGLE_TODO:
-      return state.map((todo, index) => {
-        if (index === action.index) {
+      return state.map(todo => {
+        if (todo._id === action.uniqueid) {
           return Object.assign({}, todo, {
-            completed: !todo.completed
+            completed: action.completed
           });
         }
         return todo;

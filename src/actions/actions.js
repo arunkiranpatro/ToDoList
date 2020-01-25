@@ -11,10 +11,11 @@ export function addTodo(text, uniqueid) {
     uniqueid
   };
 }
-export function toggleTodo(index) {
+export function toggleTodo(uniqueid, completed) {
   return {
     type: constants.TOGGLE_TODO,
-    index
+    uniqueid,
+    completed
   };
 }
 export function setVisibilityFilter(filter) {
@@ -24,10 +25,11 @@ export function setVisibilityFilter(filter) {
   };
 }
 export const toggleTodoWrapper = (id, uniqueid) => dispatch => {
-  dispatch(toggleTodo(id));
   axios
     .post("http://localhost:5000/api/tasks/update", { id: uniqueid })
-    .then(response => console.log(response))
+    .then(response => {
+      dispatch(toggleTodo(response.data._id, response.data.completed));
+    })
     .catch(err => console.log(err));
 };
 
