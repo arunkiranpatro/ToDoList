@@ -1,17 +1,14 @@
-import {
-  constants
-} from "../constants";
+import { constants } from "../constants";
 
-import {
-  VisibilityFilters
-} from "../constants";
+import { VisibilityFilters } from "../constants";
 
-const axios = require('axios');
+const axios = require("axios");
 
-export function addTodo(text) {
+export function addTodo(text, uniqueid) {
   return {
     type: constants.ADD_TODO,
-    text
+    text,
+    uniqueid
   };
 }
 export function toggleTodo(index) {
@@ -26,24 +23,30 @@ export function setVisibilityFilter(filter) {
     filter
   };
 }
-export const toggleTodoWrapper = (id,uniqueid)=> dispatch =>{
+export const toggleTodoWrapper = (id, uniqueid) => dispatch => {
   dispatch(toggleTodo(id));
-  axios.post("http://localhost:5000/api/tasks/update",{id:uniqueid})
-  .then(response => console.log(response))
-  .catch(err=> console.log(err));
-}
+  axios
+    .post("http://localhost:5000/api/tasks/update", { id: uniqueid })
+    .then(response => console.log(response))
+    .catch(err => console.log(err));
+};
 
 export const addTask = text => dispatch => {
-  dispatch(addTodo(text));
-  dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE));
-  axios.post("http://localhost:5000/api/tasks/create",{text})
-  .then(response => console.log(response))
-  .catch(err=> console.log(err));
+  axios
+    .post("http://localhost:5000/api/tasks/create", { text })
+    .then(response => {
+      dispatch(addTodo(response.data.text, response.data._id));
+      dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE));
+    })
+    .catch(err => console.log(err));
 };
 
 export const fetchToDos = () => dispatch => {
-  axios.get("http://localhost:5000/api/tasks/getAll")
-  .then(response => response.data)
-  .then(response => {dispatch({type:constants.INIT,response})})
-  .catch(err=> console.log(err));
-}
+  axios
+    .get("http://localhost:5000/api/tasks/getAll")
+    .then(response => response.data)
+    .then(response => {
+      dispatch({ type: constants.INIT, response });
+    })
+    .catch(err => console.log(err));
+};
