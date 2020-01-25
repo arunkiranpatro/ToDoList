@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Children } from "react";
 
-const Link = ({ active, text, onClick }) => {
+const Link = ({ active,children, onClick }) => {
   if (active) {
-    return <a className="selected">{text}</a>;
+    return <a className="selected">{children}</a>;
   }
   return (
     <a
@@ -12,7 +12,7 @@ const Link = ({ active, text, onClick }) => {
         onClick();
       }}
     >
-      {text}
+      {children}
     </a>
   );
 };
