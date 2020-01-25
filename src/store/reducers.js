@@ -26,6 +26,8 @@ function todos(state = [], action) {
                 }
                 return todo;
             })
+        case constants.INIT :
+            return [...state,...action.response];
         default:
             return state;
     }
