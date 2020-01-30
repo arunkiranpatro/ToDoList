@@ -21,8 +21,8 @@ const mapStateToProps = (state /*, ownProps*/) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: (id,uniqueid) => {
-      dispatch(toggleTodoWrapper(id,uniqueid));
+    onTodoClick: (id, uniqueid) => {
+      dispatch(toggleTodoWrapper(id, uniqueid));
     }
   };
 };
