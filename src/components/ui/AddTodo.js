@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const AddTodo = function({ onSubmit }) {
   let _task;
@@ -9,7 +10,13 @@ const AddTodo = function({ onSubmit }) {
   }
   return (
     <form onSubmit={addTask}>
-      <input type="text" ref={input => (_task = input)} />
+      <input
+        type="text"
+        ref={input => {
+          _task = input;
+          return _task;
+        }}
+      />
       <button type="submit" className="add-task">
         Add Task
       </button>
@@ -17,4 +24,7 @@ const AddTodo = function({ onSubmit }) {
   );
 };
 
+AddTodo.propTypes = {
+  onSubmit: PropTypes.func
+};
 export default AddTodo;

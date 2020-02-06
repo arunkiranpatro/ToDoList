@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ToDo from "./todo";
 
 const ToDoList = ({ todos = [], onTodoClick }) => (
@@ -14,5 +15,15 @@ const ToDoList = ({ todos = [], onTodoClick }) => (
     ))}
   </ul>
 );
-
+ToDoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      completed: PropTypes.bool,
+      onClick: PropTypes.func,
+      uniqueID: PropTypes.string
+    })
+  ),
+  onTodoClick: PropTypes.func
+};
 export default ToDoList;

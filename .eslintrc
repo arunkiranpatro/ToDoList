@@ -12,7 +12,8 @@
          "quotes": "off",
          "no-console": "off",
          "space-before-function-paren": "off",
-         "react/jsx-filename-extension": "off"
+         "react/jsx-filename-extension": "off",
+         "object-curly-newline": "off"
      },
      "env": {
          "browser": true,
