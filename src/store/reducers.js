@@ -1,7 +1,6 @@
-import { constants } from "../constants";
-import { VisibilityFilters } from "../constants";
+import { combineReducers } from 'redux';
+import { constants, VisibilityFilters } from '../constants';
 
-import { combineReducers } from "redux";
 
 function todos(state = [], action) {
   switch (action.type) {
@@ -17,9 +16,7 @@ function todos(state = [], action) {
     case constants.TOGGLE_TODO:
       return state.map(todo => {
         if (todo._id === action.uniqueid) {
-          return Object.assign({}, todo, {
-            completed: action.completed
-          });
+          return { ...todo, completed: action.completed };
         }
         return todo;
       });

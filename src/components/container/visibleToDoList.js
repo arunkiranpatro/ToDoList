@@ -13,18 +13,14 @@ const getVisibleTodos = (todos, filter) => {
       return todos;
   }
 };
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
-  };
-};
+const mapStateToProps = (state /* , ownProps */) => ({
+  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTodoClick: (id, uniqueid) => {
-      dispatch(toggleTodoWrapper(id, uniqueid));
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onTodoClick: (id, uniqueid) => {
+    dispatch(toggleTodoWrapper(id, uniqueid));
+  }
+});
 const VisibleToDoList = connect(mapStateToProps, mapDispatchToProps)(ToDoList);
 export default VisibleToDoList;

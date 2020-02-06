@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 
-const Link = ({ active,children, onClick }) => {
+const Link = ({ active, children, onClick }) => {
   if (active) {
     return <a className="selected">{children}</a>;
   }
