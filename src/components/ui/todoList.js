@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import ToDo from "./todo";
 
-const ToDoList = ({ todos = [], onTodoClick }) => (
+const ToDoList = ({ todos = [], toggleTodoWrapper }) => (
   <ul className="todo-list">
     {todos.map((todo, id) => (
       <ToDo
         text={todo.text}
         completed={todo.completed}
-        onClick={() => onTodoClick(id, todo._id)}
+        onClick={() => toggleTodoWrapper(id, todo._id)}
         key={id}
         uniqueID={todo._id}
       />

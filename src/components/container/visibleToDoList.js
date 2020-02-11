@@ -22,5 +22,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(toggleTodoWrapper(id, uniqueid));
   }
 });
-const VisibleToDoList = connect(mapStateToProps, mapDispatchToProps)(ToDoList);
+const VisibleToDoList = connect(mapStateToProps, { toggleTodoWrapper })(
+  ToDoList
+);
 export default VisibleToDoList;
